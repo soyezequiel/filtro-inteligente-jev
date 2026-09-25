@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Marcador de slop",
+  "version": "1.4.3",
+  "description": "Marca posts según tu propio criterio con Jev.",
+  "minimum_chrome_version": "102",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.typesafe.ai/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Marcador de slop",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*",
+        "https://www.reddit.com/*",
+        "https://old.reddit.com/*",
+        "https://www.linkedin.com/*",
+        "https://bsky.app/*",
+        "https://www.threads.net/*",
+        "https://threads.net/*",
+        "https://www.threads.com/*",
+        "https://threads.com/*",
+        "https://www.facebook.com/*",
+        "https://facebook.com/*",
+        "https://www.instagram.com/*",
+        "https://instagram.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

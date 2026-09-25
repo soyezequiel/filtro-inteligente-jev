@@ -1,0 +1,113 @@
+.jev-slop-badge {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  margin: 5px 8px 7px 0 !important;
+  padding: 4px 8px !important;
+  border: 1px solid #e5a364 !important;
+  border-radius: 5px !important;
+  background: #fff1df !important;
+  color: #813c12 !important;
+  font: 700 11px/1.2 system-ui, sans-serif !important;
+  letter-spacing: .055em !important;
+  text-transform: uppercase !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  gap: 8px !important;
+}
+
+.jev-slop-toggle {
+  border: 0 !important;
+  border-left: 1px solid currentColor !important;
+  padding: 0 0 0 8px !important;
+  background: transparent !important;
+  color: inherit !important;
+  font: 700 11px/1.2 system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  cursor: pointer !important;
+}
+
+.jev-slop-toggle[hidden] { display: none !important; }
+
+.jev-slop-covered { position: relative !important; }
+
+.jev-slop-cover {
+  box-sizing: border-box !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding: 12px !important;
+  border-radius: inherit !important;
+  background: rgba(248, 248, 244, .44) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+}
+
+.jev-slop-cover-panel {
+  box-sizing: border-box !important;
+  position: sticky !important;
+  top: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 7px 8px 7px 10px !important;
+  border: 1px solid #d6ddd0 !important;
+  border-radius: 7px !important;
+  background: #f9fbf6 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .14) !important;
+  color: #26372a !important;
+  font: 700 12px/1.2 system-ui, sans-serif !important;
+  cursor: default !important;
+}
+
+.jev-slop-cover-tag {
+  max-width: 180px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  color: #874916 !important;
+  letter-spacing: .05em !important;
+  text-transform: uppercase !important;
+}
+
+.jev-slop-reveal {
+  border: 0 !important;
+  border-radius: 4px !important;
+  padding: 6px 9px !important;
+  background: #2c5d3f !important;
+  color: white !important;
+  font: 700 11px/1.2 system-ui, sans-serif !important;
+  cursor: pointer !important;
+}
+
+.jev-slop-reveal:hover { background: #224b33 !important; }
+.jev-slop-reveal:focus-visible, .jev-slop-toggle:focus-visible { outline: 2px solid #2c5d3f !important; outline-offset: 2px !important; }
+
+@supports not (backdrop-filter: blur(1px)) {
+  .jev-slop-covered > :not(.jev-slop-cover) { filter: blur(9px) !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .jev-slop-badge {
+    background: #3e2819 !important;
+    color: #ffd4a8 !important;
+    border-color: #8c5c34 !important;
+  }
+  .jev-slop-cover { background: rgba(19, 23, 19, .52) !important; }
+  .jev-slop-cover-panel { background: #263028 !important; color: #f2f5eb !important; border-color: #506653 !important; }
+  .jev-slop-cover-tag { color: #ffd4a8 !important; }
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marcador de slop</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">S</span><span>Marcador de slop</span></div>
+      <label class="switch" title="Activar o pausar"><input id="enabled" type="checkbox"><span></span></label>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow">FILTRO PERSONAL</div>
+      <h1>Marcá lo que no querés leer.</h1>
+      <p>La IA compara cada post visible con tu criterio y le pone una etiqueta cuando coincide.</p>
+    </section>
+
+    <form id="settingsForm">
+      <div class="section-heading"><span>01</span><h2>Tu criterio</h2></div>
+      <label for="prompt">¿Qué posts querés marcar?</label>
+      <textarea id="prompt" rows="5" maxlength="3000" required></textarea>
+      <div class="field-footer"><span>Podés cambiarlo por completo cuando quieras.</span><button type="button" id="resetPrompt" class="text-button">Restablecer</button></div>
+
+      <div class="row">
+        <div class="field">
+          <label for="label">Texto de la etiqueta</label>
+          <input id="label" type="text" maxlength="30" required placeholder="SLOP">
+        </div>
+        <div class="field threshold-field">
+          <label for="threshold">Coincidencia mínima</label>
+          <select id="threshold">
+            <option value="0.6">60 % · más marcas</option>
+            <option value="0.75">75 % · equilibrado</option>
+            <option value="0.9">90 % · más preciso</option>
+          </select>
+        </div>
+      </div>
+
+      <label class="checkbox-row" for="blurMatches"><input id="blurMatches" type="checkbox"><span>Borronear los posts marcados</span></label>
+
+      <div class="section-heading connection-heading"><span>02</span><h2>Conectar Jev</h2></div>
+      <div id="typesafeFields">
+        <p class="help">Usá tu clave de la consola de TypeSafe. Las consultas consumen los créditos disponibles en esa cuenta.</p>
+        <label for="typesafeApiKey">TypeSafe API key</label>
+        <div class="token-wrap"><input id="typesafeApiKey" type="password" spellcheck="false" autocomplete="off" placeholder="Pegá tu clave de TypeSafe"><button type="button" id="toggleTypesafeToken" aria-label="Mostrar clave">Mostrar</button></div>
+        <a class="docs-link" href="https://console.typesafe.ai/" target="_blank" rel="noopener noreferrer">Ver créditos en TypeSafe ↗</a>
+      </div>
+
+      <button id="save" type="submit" class="primary">Guardar configuración</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <section class="test-area">
+      <div class="section-heading"><span>03</span><h2>Probar con un post</h2></div>
+      <textarea id="sample" rows="3" placeholder="Pegá acá el texto de un post para ver cómo lo clasifica el modelo."></textarea>
+      <button id="test" type="button" class="secondary">Probar criterio guardado</button>
+      <p id="testResult" class="test-result" role="status" aria-live="polite"></p>
+    </section>
+    <footer>Funciona en X, Reddit, LinkedIn, Bluesky, Threads, Facebook e Instagram. Solo analiza texto visible.</footer>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
